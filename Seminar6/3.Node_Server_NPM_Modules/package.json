@@ -1,0 +1,15 @@
+{
+  "name": "simple_server",
+  "version": "1.0.0",
+  "description": "This is an example of a simple server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tudor",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "random": "^5.4.1"
+  }
+}

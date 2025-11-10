@@ -1,0 +1,97 @@
+What is REST?
+An architectural style (constraints) for web APIs. If you follow them, the web’s infrastructure (browsers, CDNs, proxies, gateways) can help you with readability, maintainability, scalability, and often performance.
+
+1) Resource-oriented
+
+Model nouns as resources with URLs.
+
+Do: /orders/123, /users/42, /carts/42/items/X1
+
+Don’t: /getOrder, /updateUserName (verbs in the path)
+
+Why better: tools/CDNs understand what you mean; links are predictable.
+Counter-example pain: POST /getOrder hides a read behind POST → not cacheable by default.
+
+2) Uniform interface (use HTTP as designed)
+
+Methods: GET (read, safe), POST (create/unsafe), PUT (replace, idempotent), PATCH (partial), DELETE (idempotent).
+
+Status codes: 201 Created (+ Location), 404 Not Found, 409 Conflict, 422 Unprocessable Entity, etc.
+
+Self-descriptive messages: Content-Type, Accept, auth headers.
+
+Do:
+
+PUT /profiles/42
+Content-Type: application/json
+
+{ "name": "Ana" }   # idempotent
+
+
+Don’t:
+
+POST /updateProfile?id=42&field=name&value=Ana  # harder to retry safely
+
+3) Stateless requests
+
+The server keeps no per-client session needed to interpret the next request. Every request carries what’s needed (auth, tenant, cursor).
+
+Do (stateless checkout):
+
+POST /carts -> 201 Location: /carts/42
+PUT  /carts/42/items/X1 { "qty": 2 }
+POST /payment-intents   { "cart_id": "42" }
+POST /orders            { "cart_id": "42", "payment_intent_id": "pi_abc" }
+
+
+Don’t (stateful wizard):
+
+POST /checkout/start  # server stores session in memory
+POST /checkout/addItem
+POST /checkout/complete  # breaks if session/node is lost
+
+
+Why better: any node can handle any request; retries and scaling are simpler.
+
+4) Cacheability
+
+Say if/how a response can be cached.
+
+Freshness: Cache-Control: public, max-age=300 (and s-maxage for CDNs)
+
+Validation: ETag / Last-Modified + client If-None-Match → 304 Not Modified
+
+Do:
+
+GET /products/7
+Cache-Control: public, max-age=300
+ETag: "p7-v42"
+
+
+Don’t:
+
+POST /getProduct  # shared caches won’t cache this by default
+
+
+Why better: browsers/CDNs can serve or revalidate; origin does less work.
+
+5) Layered system
+
+Clients shouldn’t care if a CDN, proxy, or gateway handled the request.
+
+Middle layers can cache, rate-limit, auth, and route without client changes.
+
+Works because you used standard methods, status codes, headers, and statelessness.
+
+Don’t break it: avoid sticky sessions and custom semantics hidden in bodies.
+
+
+CRUD
+
+CRUD is an acronym for CREATE, READ, UPDATE, DELETE and they express te type of operations that can be performed persistent data elements, eg. databases
+In a RESTful API you express CRUD by applying HTTP methods to resources
+
+API vs Endpoints
+
+API - represets the whole set of rules, eg. how to authenticate, communicate, request/response formats, errors, versioning
+Endpoints - one specific entry inside the API, usually identifiable through methods and URL
