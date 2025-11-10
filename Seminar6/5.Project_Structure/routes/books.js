@@ -19,7 +19,7 @@ export const router = express.Router()
 // creates a router instance— a self-contained “mini-app” with its own routes and middleware stack.
 // You use it to group related endpoints (by feature or resource) and then mount them under a base path in your main app.
 
-//router.use(logRequest)
+router.use(logRequest)
 
 router.get("/", bookController.getBooks) // express injects the params when executing the function
 router.get("/random", bookController.getRandomBook)
