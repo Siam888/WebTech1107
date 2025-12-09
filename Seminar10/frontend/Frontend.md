@@ -40,7 +40,7 @@ A simple HTML document would look like this:
 - The `<body>` element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.  
 - The `<h1>` element defines a large heading  
 - The `<p>` element defines a paragraph
-        
+
 ## CSS
 
 CSS is a styling language, used to format the elements of a HTML document.
