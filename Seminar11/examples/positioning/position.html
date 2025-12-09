@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Examples</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding-bottom: 1200px;
+            /* Extra space to allow scrolling */
+        }
+
+        /* 1. FIXED POSITION */
+        /* Stays in the same place on the screen when you scroll. */
+        .fixed-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: orange;
+            /* Dark Grey */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            /* Ensures it sits on top of everything */
+        }
+
+        .container {
+            margin-top: 80px;
+            /* Push content down so Fixed Header doesn't hide it */
+            padding: 20px;
+        }
+
+        /* 2. STATIC POSITION (Default) */
+        /* The browser places this automatically. Top/Left do not work. */
+        .static-box {
+            position: static;
+            background-color: #ddd;
+            /* Light Grey */
+            padding: 20px;
+            border: 2px solid #999;
+            margin-bottom: 20px;
+        }
+
+        /* 3. RELATIVE POSITION */
+        /* Moves relative to its normal spot. */
+        /* Notice: It leaves a gap where it used to be. */
+        .relative-box {
+            position: relative;
+            top: 20px;
+            /* Move down 20px */
+            left: 30px;
+            /* Move right 30px */
+            background-color: lightblue;
+            padding: 20px;
+            border: 2px solid blue;
+            margin-bottom: 20px;
+        }
+
+        /* 4. ABSOLUTE POSITION */
+        /* Removed from the flow. It looks for the nearest parent with position. */
+        .parent-container {
+            position: relative;
+            /* This is the anchor for the child */
+            height: 200px;
+            background-color: #f9f9f9;
+            border: 2px dashed red;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        .absolute-child {
+            position: absolute;
+            bottom: 10px;
+            /* 10px from the bottom of parent */
+            right: 10px;
+            /* 10px from the right of parent */
+            background-color: red;
+            color: white;
+            padding: 10px;
+        }
+
+        /* 5. STICKY POSITION */
+        /* Acts like static until you scroll past it, then acts like fixed. */
+        .sticky-box {
+            position: sticky;
+            top: 60px;
+            /* Stops 60px from top (under the fixed header) */
+            background-color: yellow;
+            padding: 20px;
+            border: 2px solid orange;
+            font-weight: bold;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="fixed-box">
+        I am FIXED. I stay here when you scroll.
+    </div>
+
+    <div class="container">
+        <h1>CSS Positioning</h1>
+
+        <h3>1. Static (Default)</h3>
+        <div class="static-box">
+            I am static. I appear in the normal order.
+        </div>
+
+        <h3>2. Relative</h3>
+        <div class="static-box">I am a normal box before the relative box.</div>
+        <div class="relative-box">
+            I am relative. I am moved 20px down and 30px right. <br>
+            Notice the empty space I left behind!
+        </div>
+        <div class="static-box">I am a normal box after the relative box.</div>
+
+        <h3>3. Absolute</h3>
+        <div class="parent-container">
+            I am the Parent (Relative).
+            <div class="absolute-child">
+                I am Absolute. I stick to the bottom-right of my parent.
+            </div>
+        </div>
+
+        <h3>4. Sticky</h3>
+        <p>Scroll down slowly to see the yellow box stick.</p>
+
+        <div class="sticky-box">
+            I am STICKY. I will stick to the top when you scroll past me.
+        </div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad
+        </p>
+    </div>
+</body>
+
+</html>

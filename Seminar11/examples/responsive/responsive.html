@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Example</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+
+        /* --- 1. BASE STYLES (MOBILE FIRST) --- */
+        /* These rules apply to ALL screens, starting from 0px width. */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 Column (Vertical Stack) */
+            gap: 20px;
+        }
+
+        .card {
+            background: lightblue;
+            border: 2px solid navy;
+            padding: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* --- 2. TABLET SCREENS (If screen is bigger than 600px) --- */
+        @media (min-width: 600px) {
+            .container {
+                grid-template-columns: 1fr 1fr; /* 2 Columns */
+            }
+            .card {
+                background: lightgreen; /* Color change to show it works */
+            }
+        }
+
+        /* --- 3. DESKTOP SCREENS (If screen is bigger than 900px) --- */
+        @media (min-width: 900px) {
+            .container {
+                grid-template-columns: 1fr 1fr 1fr; /* 3 Columns */
+            }
+            .card {
+                background: orange; /* Color change to show it works */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Resize your browser window!</h2>
+    <p>Watch the boxes change color and layout.</p>
+
+    <div class="container">
+        <div class="card">Box 1</div>
+        <div class="card">Box 2</div>
+        <div class="card">Box 3</div>
+        <div class="card">Box 4</div>
+        <div class="card">Box 5</div>
+        <div class="card">Box 6</div>
+    </div>
+
+</body>
+</html>

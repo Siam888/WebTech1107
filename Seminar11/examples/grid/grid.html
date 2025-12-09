@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid Example</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; }
+
+        .container {
+            display: grid;
+            height: 100vh; /* Full screen height */
+            gap: 10px;     /* Space between grid cells */
+
+            /* 1. Define Columns: Sidebar (200px) and Main Content (Rest of space) */
+            grid-template-columns: 200px 1fr;
+
+            /* 2. Define Rows: Header (auto), Main Body (Rest), Footer (auto) */
+            grid-template-rows: auto 1fr auto;
+
+            /* 3. Paint the Layout using Names */
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer";
+        }
+
+        /* Assign HTML elements to Grid Areas */
+        header { grid-area: header; background: tomato; padding: 20px; }
+        aside  { grid-area: sidebar; background: lightgreen; padding: 20px; }
+        main   { grid-area: main;    background: lightblue; padding: 20px; }
+        footer { grid-area: footer;  background: #333; color: white; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>Header (Spans 2 columns)</header>
+        <aside>Sidebar</aside>
+        <main>Main Content Area (1fr)</main>
+        <footer>Footer (Spans 2 columns)</footer>
+    </div>
+
+</body>
+</html>
