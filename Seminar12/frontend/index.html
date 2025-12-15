@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Library</title>
+    <!-- Links to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Books</h1>
+
+    <dialog  class="modal">
+        <!-- The Add Book Form -->
+        <form id="addBookForm" class="hidden">
+            <!-- Group 1: Title -->
+            <div class="input-group">
+                <label for="title">Book Title</label>
+                <input type="text" id="title" placeholder="e.g. The Hobbit" required>
+            </div>
+
+            <!-- Group 2: Author -->
+            <div class="input-group">
+                <label for="author">Author Name</label>
+                <input type="text" id="author" placeholder="e.g. J.R.R. Tolkien" required>
+            </div>
+
+            <!-- Group 3: Year -->
+            <div class="input-group">
+                <label for="year">Year of Publication</label>
+                <input type="number" id="year" placeholder="e.g. 1937">
+            </div>
+
+            <!-- Group 4: Pages -->
+            <div class="input-group">
+                <label for="pages">Number of Pages</label>
+                <input type="number" id="pages" placeholder="e.g. 310">
+            </div>
+            <button type="submit" id="addButton">Add Book</button>
+        </form>
+    </dialog>
+
+    <hr> <!-- A visual separator -->
+
+
+    <!-- Main container for the app content -->
+    <main class="container">
+
+        <div class="actions-container">
+            <input type="text" placeholder="Search for a book">
+            <button>Search</button>
+            <button>Add</button>
+        </div>
+        <h2>My Library</h2>
+        <!-- Button to trigger the action -->
+        <button id="loadButton">Load Books</button>
+
+        <!-- List where books will appear -->
+        <ul id="bookList">
+            <li class="empty-message">No books loaded yet...</li>
+        </ul>
+    </main>
+
+    <!-- Links to the external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>

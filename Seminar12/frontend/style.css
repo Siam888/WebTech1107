@@ -1,0 +1,237 @@
+/* GLOBAL STYLES 
+   This sets the font and background for the entire page.
+*/
+body {
+    font-family: 'Arial', sans-serif;
+    /* A modern font stack */
+
+    /* A linear gradient makes the background look more professional than a solid color */
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+
+    /* 
+    135deg (The Direction):
+
+    This is the angle of the "line."
+
+    0deg goes straight up. 90deg goes to the right.
+
+    135deg goes diagonally from the top-left corner to the bottom-right corner. 
+    */
+
+    /* Ensure the background covers the whole screen height */
+    min-height: 100vh;
+
+    text-align: center;
+    margin: 0;
+    /* Removes default browser margin so the color touches the edges */
+}
+
+/* CONTAINER CARD
+   This is the white box that holds our content.
+*/
+.container {
+    background-color: white;
+    width: 50%;
+
+    /* MARGIN AUTO: This is the magic trick to center a block element horizontally */
+    margin: 60px auto;
+
+    padding: 30px;
+    border-radius: 15px;
+    /* Rounded corners look friendlier */
+
+    /* box-shadow: horizontal-offset vertical-offset blur-radius color */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* HEADER STYLES 
+*/
+h1 {
+    color: #2c3e50;
+    /* Dark blue-gray is easier on the eyes than pure black */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    /* Makes the title stand out */
+    letter-spacing: 2px;
+}
+
+/* BUTTON STYLES 
+   We want the button to look clickable and inviting.
+*/
+#loadButton {
+    padding: 12px 25px;
+    /* More padding makes it easier to click on mobile */
+    background-color: #6c5ce7;
+    /* A vibrant purple/blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    /* Pill-shaped button */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* HOVER STATE: What happens when the mouse is over the button */
+#loadButton:hover {
+    background-color: #4834d4;
+    /* Darker purple */
+}
+
+/* LIST STYLES 
+*/
+#bookList {
+    display: grid;
+    /* Create 3 equal columns */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    /* Space between the grid cells */
+    padding: 0;
+    list-style:none ;
+}
+
+/* LIST ITEM STYLES 
+   Targeting the <li> inside the #book-list
+*/
+#bookList li {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Optional: Make the list items change color when you hover over them */
+#bookList li:hover {
+    background-color: #f8f9fa;
+    color: #6c5ce7;
+    /* Matches the button color */
+}
+
+/* UTILITY CLASS 
+   For the "No books loaded" message 
+*/
+.empty-message {
+    color: #aaa !important;
+    /* Force a lighter gray color */
+    font-style: italic;
+    text-align: center;
+}
+
+
+#addBookForm {
+    background: #f9f9f9;
+    /* Light gray background to separate form from card */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left;
+    /* Aligns labels to the left */
+}
+
+/* Groups specifically for the form inputs */
+.input-group {
+    margin-bottom: 15px;
+    /* Spacing between each input group */
+}
+
+/* Labels: display: block forces them to sit on their own line */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Inputs: styling text and number fields */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    /* Force input to take full available width */
+    padding: 10px;
+
+    /* CRITICAL: Ensures padding is included in the width calculation */
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Focus state for inputs */
+input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    background-color: #fff;
+}
+
+/* Form Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #00b894;
+    /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #00a884;
+}
+
+/* --- SEPARATOR --- */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 30px 0;
+}
+
+.hidden {
+    display: block;
+}
+
+.actions-container {
+    display: flex;
+    column-gap: 1rem;
+    justify-content: space-between;
+}
+
+.modal {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    
+    /* 1. Make the container wider on small screens */
+    .container {
+        width: 90%; 
+        margin-top: 20px;
+    }
+
+    /* 2. Switch Grid from 3 columns to 1 column */
+    #bookList {
+        grid-template-columns: 1fr; 
+    }
+
+    /* 3. Stack the Navbar items (Title on top, button on bottom) */
+    .actions-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
