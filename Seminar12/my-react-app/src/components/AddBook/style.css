@@ -1,0 +1,79 @@
+
+#addBookForm {
+    background: #f9f9f9;
+    /* Light gray background to separate form from card */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left;
+    /* Aligns labels to the left */
+}
+
+/* Groups specifically for the form inputs */
+.input-group {
+    margin-bottom: 15px;
+    /* Spacing between each input group */
+}
+
+/* Labels: display: block forces them to sit on their own line */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Inputs: styling text and number fields */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    /* Force input to take full available width */
+    padding: 10px;
+
+    /* CRITICAL: Ensures padding is included in the width calculation */
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Focus state for inputs */
+input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    background-color: #fff;
+}
+
+/* Form Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #00b894;
+    /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #00a884;
+}
+
+.modal {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
