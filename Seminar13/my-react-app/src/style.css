@@ -1,0 +1,33 @@
+h1 {
+    color: #2c3e50;
+    /* Dark blue-gray is easier on the eyes than pure black */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    /* Makes the title stand out */
+    letter-spacing: 2px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* A modern font stack */
+
+    /* A linear gradient makes the background look more professional than a solid color */
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+
+    /* 
+    135deg (The Direction):
+
+    This is the angle of the "line."
+
+    0deg goes straight up. 90deg goes to the right.
+
+    135deg goes diagonally from the top-left corner to the bottom-right corner. 
+    */
+
+    /* Ensure the background covers the whole screen height */
+    min-height: 100vh;
+
+    text-align: center;
+    margin: 0;
+    /* Removes default browser margin so the color touches the edges */
+}
